@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Hola Admin</h1>
+<div mat-dialog-content>
+  <p>Ingrese el codigo para <br>ingresar al rol de admin</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Ingrese: code123</mat-label>
+    <input matInput [(ngModel)]="data.code">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Cerrar</button>
+  <button mat-button (click)="onContinue()"
+          [mat-dialog-close]="data.code">Continuar</button>
+</div>

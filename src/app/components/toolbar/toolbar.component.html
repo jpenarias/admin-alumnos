@@ -2,26 +2,27 @@
   <mat-toolbar color="primary">
     <button mat-icon-button type="button" class="example-icon" (click)="drawer.toggle()" aria-label="Example icon-button with menu icon">
       <mat-icon>menu</mat-icon>
+      <span class="material-icons md-48">face</span>
+      <span>Administrador de estudiantes y cursos</span>
     </button>
-    <span class="material-icons md-48">face</span>
-    <span>Admin Alumnos</span>
   </mat-toolbar>
 </p>
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
-    <button mat-icon-button type="button" class="example-icon-1" >
+    <button (click)="isAdmin()" mat-icon-button type="button" class="example-icon-1" >
       <mat-icon>settings
       </mat-icon>
       Rol admin
     </button>
     <div class="example-icon-2">
-      <button mat-icon-button type="button"  >
+      <button mat-icon-button type="button" (click)="isUser()" >
         <mat-icon>person
         </mat-icon>
         Usuario
       </button>
     </div>
   </mat-drawer>
+  <app-admin-list [admin]="admin" ></app-admin-list>
 </mat-drawer-container>
 
 

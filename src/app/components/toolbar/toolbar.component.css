@@ -24,10 +24,11 @@ span {
 
 .example-icon-2 {
   margin-left: 15%;
-  margin-top: 15%;
+
 }
 
 .example-sidenav {
-  width: 10%;
-  padding: 20px;
+  width: 15%;
+  padding-top: 20px;
+  padding-left: 10px;
 }
