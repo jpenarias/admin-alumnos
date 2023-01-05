@@ -26,7 +26,7 @@ export class DialogAdminConfirmationComponent implements OnInit {
   onContinue() {
     console.log(this.data.code);
     if (this.data.code !== 'code123'){
-      this._snackBar.open( 'El codigo no es correcto para ingresar al rol de Admin', 'Cerrar' );
+
     }
   }
 

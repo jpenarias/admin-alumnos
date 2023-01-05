@@ -13,8 +13,7 @@ const ELEMENT_DATA = [
 
 export class AdminListComponent implements OnInit {
 
-  displayedColumnsAdmin: string[] = [ 'id', 'name', 'lessons', 'action'];
-  displayedColumnsUser: string[] = [ 'id', 'name', 'lessons'];
+  displayedColumns: string[] = [ 'id', 'name', 'lessons', 'action'];
   dataSource = ELEMENT_DATA;
   @Input() admin: boolean;
 
