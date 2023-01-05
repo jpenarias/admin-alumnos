@@ -1,1 +1,84 @@
-<app-toolbar></app-toolbar>
+<!--<app-toolbar></app-toolbar>-->
+
+<div class="container" *ngIf="logged">
+  <mat-toolbar color="primary">
+    <button mat-icon-button type="button" (click)="drawer.toggle()" class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+      <span>Administrador de estudiantes y cursos</span>
+    </button>
+  </mat-toolbar>
+
+  <mat-drawer-container class="example-container" autosize >
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+
+      <div *ngIf="user.type === 'ADMIN'">
+        <button mat-icon-button type="button" class="example-icon-1"  (click)="redirect('users')">
+          <mat-icon>settings
+          </mat-icon>
+          Usuarios
+        </button>
+        <div class="example-icon-2">
+          <button mat-icon-button type="button" (click)="redirect('students')" >
+            <mat-icon>groups
+            </mat-icon>
+            Estudiantes
+          </button>
+        </div>
+
+        <div class="example-icon-2">
+          <button mat-icon-button type="button" (click)="redirect('courses')">
+            <mat-icon>feed
+            </mat-icon>
+            Cursos
+          </button>
+        </div>
+      </div>
+
+
+
+      <div *ngIf="user.type === 'USER'">
+        <button (click)="isAdmin()" mat-icon-button type="button" class="example-icon-1" >
+          <mat-icon>settings
+          </mat-icon>
+          eriutiut
+        </button>
+        <div class="example-icon-2">
+          <button mat-icon-button type="button" (click)="isUser()" >
+            <mat-icon>person
+            </mat-icon>
+            yrhrbty
+          </button>
+        </div>
+      </div>
+    </mat-drawer>
+
+    <!--<app-admin-list [admin]="admin" ></app-admin-list>-->
+    <router-outlet></router-outlet>
+  </mat-drawer-container>
+</div>
+
+
+<div *ngIf="!logged">
+  <mat-card class="example-card">
+    <form class="example-form" #f="ngForm" (ngSubmit)="login(f)" novalidate>
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="username" name="user" ngModel>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>password</mat-label>
+          <input matInput type="password" name="password" ngModel>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button type="submit">Login</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>
+
